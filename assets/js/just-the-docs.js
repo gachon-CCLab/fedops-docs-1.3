@@ -76,6 +76,10 @@ function initSearch() {
   request.onload = function(){
     if (request.status >= 200 && request.status < 400) {
       var docs = JSON.parse(request.responseText);
+      var docsVersion = document.documentElement.getAttribute('data-docs-version') || '1.2';
+      Object.keys(docs).forEach(function(key) {
+        if (docs[key].docsVersion !== docsVersion) delete docs[key];
+      });
 
       lunr.tokenizer.separator = {{ site.search.tokenizer_separator | default: site.search_tokenizer_separator | default: "/[\s\-/]+/" }}
 

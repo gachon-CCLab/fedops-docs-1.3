@@ -1,20 +1,24 @@
+{% assign docs_version = page.docs_version | default: '1.2' %}
+{% assign version_pages = site.html_pages | where: 'docs_version', docs_version %}
+{% assign docs_home = '/' %}
+{% if docs_version == '1.2' %}{% assign docs_home = '/v1.2/' %}{% endif %}
 <div class="side-bar">
   <div class="site-header" role="banner">
-    <a href="{{ '/' | relative_url }}" class="site-title lh-tight">{% include title.html %}</a>
+    <a href="{{ docs_home | relative_url }}" class="site-title lh-tight">FedOps {{ docs_version }} Docs</a>
     <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
       <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
-    </a>
+    </button>
   </div>
   <nav aria-label="Main" id="site-nav" class="site-nav">
-    {% assign pages_top_size = site.html_pages
+    {% assign pages_top_size = version_pages
           | where_exp:"item", "item.title != nil"
           | where_exp:"item", "item.parent == nil"
           | where_exp:"item", "item.nav_exclude != true"
           | size %}
     {% if pages_top_size > 0 %}
-      {% include nav.html pages=site.html_pages key=nil %}
+      {% include nav.html pages=version_pages key=nil %}
     {% endif %}
-    {%- if site.nav_external_links -%}
+    {%- if site.nav_external_links and docs_version == '1.2' -%}
       <ul class="nav-list">
         {%- for node in site.nav_external_links -%}
           <li class="nav-list-item external">
@@ -56,6 +60,15 @@
         {% endif %}
       {% endfor %}
     {% endif %}
+    <ul class="nav-list version-nav">
+      <li class="nav-list-item">
+        {% if docs_version == '1.3' %}
+        <a class="nav-list-link" href="{{ '/v1.2/' | relative_url }}">FedOps 1.2 Docs</a>
+        {% else %}
+        <a class="nav-list-link" href="{{ '/' | relative_url }}">FedOps 1.3 Docs</a>
+        {% endif %}
+      </li>
+    </ul>
   </nav>
 
   {% capture nav_footer_custom %}

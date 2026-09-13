@@ -9,3 +9,5 @@ node_modules
 .DS_Store
 *copy*
 *old*
+work/
+__pycache__/

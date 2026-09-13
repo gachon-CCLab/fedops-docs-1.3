@@ -12,6 +12,7 @@
 {%- if page.has_children == true and page.has_toc != false -%}
   {%- assign child_pages = site[page.collection]
         | default: site.html_pages
+        | where: "docs_version", page.docs_version
         | where: "parent", page.title
         | where: "grand_parent", page.parent -%}
 

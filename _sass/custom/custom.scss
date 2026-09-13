@@ -1,1 +1,22 @@
 // custom SCSS (or CSS) goes here
+
+.version-nav { margin-top: 16px; padding-top: 12px; border-top: 1px solid $border-color; }
+.guide-status {
+  border-left: 3px solid #6475c7;
+  background: #f3f5ff;
+  padding: 12px 16px;
+  margin-bottom: 28px;
+  font-size: 13px;
+  p { margin: 4px 0 0; }
+}
+.guide-status-legacy { background: #f5f5f5; border-color: #858585; }
+.guide-examples {
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  padding: 14px 16px;
+  margin: 24px 0;
+  summary { cursor: pointer; font-weight: 600; }
+}
+.main-content img { max-width: 100%; height: auto; }
+.main-content aside { padding: 12px 16px; background: #fff8e5; border-left: 3px solid #d8ae48; }
+.main-content pre { max-width: 100%; overflow-x: auto; }

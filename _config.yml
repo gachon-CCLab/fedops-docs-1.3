@@ -14,11 +14,11 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: FedOps Docs
-description: Documents of FedOps
-baseurl: "" # the subpath of your site, e.g. /blog
+description: FedOps 1.3 Federated AI AgentOps documentation
+baseurl: "/fedops-docs-1.3" # the subpath of your site, e.g. /blog
 url: "https://gachon-cclab.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 # url: "http://localhost:4000"
-repository: just-the-docs/just-the-docs # for github-metadata
+repository: gachon-CCLab/fedops-docs-1.3 # for github-metadata
 
 permalink: pretty
 
@@ -49,6 +49,10 @@ exclude:
    - Dockerfile
  # theme test code
    - fixtures/
+   - scripts/
+   - work/
+   - DOCS_1_3_README.md
+   - GUIDE_EDITORIAL_NOTES.md
 
 # Set a path/url to a logo that will be displayed instead of the title
 #logo: "/assets/images/just-the-docs.png"
@@ -139,9 +143,9 @@ last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https:/
 
 
 # Footer "Edit this page on GitHub" link text
-gh_edit_link: true # show or hide edit this page link
+gh_edit_link: false # show or hide edit this page link
 gh_edit_link_text: "Edit this page on GitHub"
-gh_edit_repository: "https://github.com/just-the-docs/just-the-docs" # the github URL for your repo
+gh_edit_repository: "https://github.com/gachon-CCLab/fedops-docs-1.3" # the github URL for your repo
 gh_edit_branch: "main" # the branch that your docs is served from
 # gh_edit_source: docs # the source that your files originate from
 gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into the editor immediately
@@ -190,3 +194,17 @@ compress_html:
   profile: false
   # ignore:
   #   envs: all
+
+# Unchanged legacy pages retain their URLs and their own navigation/search.
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      docs_version: "1.2"
+  - scope:
+      path: "v1.3"
+      type: pages
+    values:
+      docs_version: "1.3"
+      lang: ko

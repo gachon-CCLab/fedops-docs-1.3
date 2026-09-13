@@ -1,0 +1,58 @@
+[
+  {
+    "source": "main\\FedOps 1 3 Document 3c75dfbe76bb80db9259dbf26b3b6a31.md",
+    "sha256": "d1301b52ac9a9109ce642e3bfc98f6349c70ac5f95ea71d440c3caa8300fa6f0",
+    "output": "index.md",
+    "images": 4,
+    "code_blocks": 1
+  },
+  {
+    "source": "매뉴얼00\\매뉴얼 00_Getting_Started 3c95dfbe76bb80d483a4e339bad741ef.md",
+    "sha256": "5715ce970617b85d1dfdbfa4ccb38f299ea05751c8262766d89a2f3afd84d765",
+    "output": "v1.3/getting-started.md",
+    "images": 1,
+    "code_blocks": 3
+  },
+  {
+    "source": "매뉴얼01\\매뉴얼 01_Owner_Web_First_Task 3c95dfbe76bb802180e5f00dd9ab12f0.md",
+    "sha256": "cdb91b8f1857186652ca21e90baccf44ce60d56f57c9878c6d3de29b07dfe589",
+    "output": "v1.3/task-owner/create-task.md",
+    "images": 15,
+    "code_blocks": 0
+  },
+  {
+    "source": "매뉴얼02\\매뉴얼 02_Owner_Local_First_Task (작성 필) 3c95dfbe76bb807793bad650b9e25fec.md",
+    "sha256": "7f4326bb555d471ba14487212149903526e55b47471427501dbca32a40824073",
+    "output": "v1.3/task-owner/import-model.md",
+    "images": 3,
+    "code_blocks": 1
+  },
+  {
+    "source": "매뉴얼03\\매뉴얼 03_Participant_Join_and_FederatedLearning 3c95dfbe76bb803299c8c8da55fab8f6.md",
+    "sha256": "816a5bf7381646ad29f18814769341b17bd382ccba1cf8b8550ac16bd8205516",
+    "output": "v1.3/participant.md",
+    "images": 16,
+    "code_blocks": 0
+  },
+  {
+    "source": "매뉴얼04\\매뉴얼 04_Agent_Builder_and_Serving 3c95dfbe76bb80868eaddbcf8e99151d.md",
+    "sha256": "7c8994661c9c1ac75092aa5b2f2e702f975e2ea268525e3de0af05ab352c9522",
+    "output": "v1.3/agent-builder.md",
+    "images": 17,
+    "code_blocks": 0
+  },
+  {
+    "source": "매뉴얼05\\매뉴얼 05_Operator_Campaing_and_ServerManage 3c95dfbe76bb8049b724f10b68d55622.md",
+    "sha256": "de380db8356ba07bb6fece728a248ad94716076663f4701b762be474c915394c",
+    "output": "v1.3/campaign.md",
+    "images": 10,
+    "code_blocks": 0
+  },
+  {
+    "source": "개발자가이드\\Federated Task Developer Guide 3c95dfbe76bb80ab90c4e62717a778b2.md",
+    "sha256": "abc0476a85994c485f453d24a2ab933a4c900bd01d4a9bc5e66d45f8fb768168",
+    "output": "v1.3/developer-guide.md",
+    "images": 7,
+    "code_blocks": 33
+  }
+]

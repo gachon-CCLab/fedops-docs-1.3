@@ -10,6 +10,7 @@
 
   {%- assign pages_list = site[page.collection]
       | default: site.html_pages
+      | where: "docs_version", page.docs_version
       | where_exp: "item", "item.title != nil"
       | where_exp: "item", "item.has_children != nil" -%}
 
