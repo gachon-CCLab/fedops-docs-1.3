@@ -93,3 +93,18 @@ html[data-docs-version] .skip-to-main {z-index:100;}
   .docs-global-nav .docs-console {padding:9px 10px;}
   .docs-console span {margin-left:4px;}
 }
+
+/* One sidebar layout for both versions; only the document list differs. */
+html[data-docs-version] .site-header {flex:0 0 76px;max-height:76px;}
+html[data-docs-version] .site-title {font-size:16px !important;}
+html[data-docs-version] .site-nav {min-height:0;flex:1 1 auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#becbdb transparent;}
+html[data-docs-version] .nav-list .nav-list-item .nav-list-link {font-size:14px !important;padding-right:34px;min-height:42px;}
+html[data-docs-version] .nav-list-expander .icon,html[data-docs-version] .site-button .icon {color:inherit;}
+html[data-docs-version] .docs-version-nav {flex:none;padding:0 16px;background:#f3f6fa;}
+html[data-docs-version] .docs-version-nav .version-nav {margin:0;padding:12px 0;border-top:1px solid var(--docs-line);}
+html[data-docs-version] .site-footer {flex:none;padding:16px 24px;}
+@media(max-width:799px) {
+ html[data-docs-version] .site-header {flex:none;max-height:60px;}
+ html[data-docs-version] .docs-version-nav {display:none;width:100%;padding:0 20px;}
+ html[data-docs-version] .site-nav.nav-open + .docs-version-nav {display:block;}
+}
