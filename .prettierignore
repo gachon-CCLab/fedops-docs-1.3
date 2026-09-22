@@ -8,4 +8,9 @@ assets/js/search-data.json
 assets/js/zzzz-search-data.json
 assets/js/just-the-docs.js
 *.md
+!v1.3/resources.md
+!v1.3/task-owner/index.md
+!_blog/**/*.md
+!_news/**/*.md
+!CONTENT_GUIDE.md
 _includes/mermaid_config.js

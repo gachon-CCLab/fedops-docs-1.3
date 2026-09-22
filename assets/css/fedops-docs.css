@@ -1,12 +1,12 @@
 /* Version 2 homepage design, shared by the 1.2 and 1.3 documentation shells. */
 html[data-docs-version] {
-  --docs-primary: #006cef;
-  --docs-primary-dark: #0059c9;
-  --docs-secondary: #6ec1fd;
-  --docs-secondary-soft: #e6f6ff;
-  --docs-ink: #13223a;
-  --docs-muted: #627089;
-  --docs-line: #dfe6ef;
+  --docs-primary: var(--fedops-primary);
+  --docs-primary-dark: var(--fedops-primary-dark);
+  --docs-secondary: var(--fedops-secondary);
+  --docs-secondary-soft: var(--fedops-secondary-soft);
+  --docs-ink: var(--fedops-ink);
+  --docs-muted: var(--fedops-muted);
+  --docs-line: var(--fedops-line);
   scroll-padding-top: 170px;
 }
 html[data-docs-version] body {font-family:Arial,"Noto Sans KR","Malgun Gothic",sans-serif;color:var(--docs-ink);background:#fff;line-height:1.65;}

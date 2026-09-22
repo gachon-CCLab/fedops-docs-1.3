@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="{{ page.summary | default: site.description | escape }}" />
+    <title>{{ page.title | default: site.title | escape }} | FedOps</title>
+    <link rel="icon" href="{{ '/assets/images/fedops-navbar-icon.png' | relative_url }}" />
+    <link rel="stylesheet" href="{{ '/assets/css/fedops-tokens.css' | relative_url }}" />
+    <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <span class="brand" aria-label="FedOps">
+          <img src="{{ '/assets/images/fedops-navbar-icon.png' | relative_url }}" alt="" />
+          <span>FedOps</span>
+        </span>
+        <span class="badge">1.3 beta</span>
+        <nav class="navigation" aria-label="Primary navigation">
+          <a href="{{ '/' | relative_url }}">Docs</a>
+          <a href="{{ '/blog/' | relative_url }}" {% if page.section == 'blog' %}aria-current="page"{% endif %}>Blog</a>
+          <a href="{{ '/news/' | relative_url }}" {% if page.section == 'news' %}aria-current="page"{% endif %}>News</a>
+        </nav>
+        <a class="console-link" href="{{ site.console_url }}" target="_blank" rel="noopener noreferrer">Open Console <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+    <main id="main">{{ content }}</main>
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <div>
+          <strong>FedOps</strong>
+          <p>Gachon University · Cognitive Computing Lab<br />Local intelligence. Shared progress.</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <a href="{{ '/' | relative_url }}">Docs</a>
+          <a href="{{ '/blog/' | relative_url }}">Blog</a>
+          <a href="{{ '/news/' | relative_url }}">News</a>
+        </nav>
+      </div>
+      <div class="wrap copyright">© 2026 Cognitive Computing Lab, Gachon University</div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+---
+layout: publication
+title: Blog
+section: blog
+---
+<section class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">BLOG</p>
+    <h1>Ideas behind the work.</h1>
+    <p>Technical perspectives, research, and practical examples from the FedOps community.</p>
+  </div>
+</section>
+<section class="wrap section" aria-label="Blog articles">
+  {% if site.blog.size > 0 %}
+    {% assign ordered_posts = site.blog | sort: 'display_order' %}
+    {% for post in ordered_posts %}
+      <a class="post-row blog-row" href="{{ post.url | relative_url }}">
+        <span class="blog-cover"><img src="{{ post.cover_image | relative_url }}" alt="" loading="lazy" /></span>
+        <span class="post-copy">
+          <span class="eyebrow">{{ post.category | escape }}</span>
+          <strong>{{ post.title | escape }}</strong>
+          <span>{{ post.summary | escape }}</span>
+          <span class="post-meta">
+            {{ post.author | escape }}<span aria-hidden="true"> · </span><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%Y년 %-m월 %-d일' }}</time>
+          </span>
+        </span>
+        <span class="row-link">Read article →</span>
+      </a>
+    {% endfor %}
+  {% else %}
+    <div class="empty-state">
+      <p class="eyebrow">BLOG</p>
+      <h2>Articles are on the way.</h2>
+      <p>In the meantime, explore the documentation and research behind FedOps.</p>
+      <a class="button" href="{{ '/' | relative_url }}">Read the documentation →</a>
+    </div>
+  {% endif %}
+</section>

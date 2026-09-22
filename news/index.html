@@ -1,0 +1,37 @@
+---
+layout: publication
+title: News
+section: news
+---
+<section class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">NEWS</p>
+    <h1>The next chapter.</h1>
+    <p>Research releases, publications, videos, and platform updates from FedOps.</p>
+  </div>
+</section>
+<section class="wrap section" aria-label="News updates">
+  {% assign ordered_posts = site.news | sort: 'display_order' %}
+  {% for post in ordered_posts %}
+    <a class="post-row" href="{{ post.url | relative_url }}">
+      <span class="eyebrow">{{ post.category | escape }}</span>
+      <span class="post-copy">
+        <strong>{{ post.title | escape }}</strong>
+        <span>{{ post.summary | escape }}</span>
+        {% if post.author or post.original_date or post.show_date %}
+          <span class="post-meta">
+            {% if post.author %}{{ post.author | escape }}{% if post.original_date or post.show_date %}<span aria-hidden="true"> · </span>{% endif %}{% endif %}
+            {% if post.original_date or post.show_date %}<time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%Y년 %-m월 %-d일' }}</time>{% endif %}
+          </span>
+        {% endif %}
+      </span>
+      <span class="row-link">Read update →</span>
+    </a>
+  {% else %}
+    <div class="empty-state">
+      <p class="eyebrow">NEWS</p>
+      <h2>No updates published yet.</h2>
+      <p>Check back for FedOps development news.</p>
+    </div>
+  {% endfor %}
+</section>

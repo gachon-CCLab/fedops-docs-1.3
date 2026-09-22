@@ -1,0 +1,22 @@
+---
+layout: publication
+---
+<article class="article wrap">
+  <a class="back-link" href="{{ page.section | prepend: '/' | append: '/' | relative_url }}">← All {{ page.section }}</a>
+  <div class="article-header">
+    <span class="category">{{ page.category | escape }}</span>
+    <h1>{{ page.title | escape }}</h1>
+    {% unless page.hide_summary %}<p class="article-summary">{{ page.summary | escape }}</p>{% endunless %}
+    {% if page.author or page.original_date or page.show_date %}
+      <p class="article-meta">
+        {% if page.author %}{{ page.author | escape }}{% if page.original_date or page.show_date %}<span aria-hidden="true"> · </span>{% endif %}{% endif %}
+        {% if page.original_date or page.show_date %}<time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%Y년 %-m월 %-d일' }}</time>{% endif %}
+      </p>
+    {% endif %}
+  </div>
+  <div class="prose">{{ content }}</div>
+  <div class="article-footer">
+    <a href="{{ page.section | prepend: '/' | append: '/' | relative_url }}">← All {{ page.section }}</a>
+    {% if page.source_url %}<a href="{{ page.source_url | escape }}" target="_blank" rel="noopener noreferrer">View original source ↗</a>{% else %}<a href="{{ '/' | relative_url }}">FedOps Docs →</a>{% endif %}
+  </div>
+</article>
