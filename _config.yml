@@ -21,6 +21,7 @@ url: "https://gachon-cclab.github.io/" # the base hostname & protocol for your s
 repository: gachon-CCLab/fedops-docs-1.3 # for github-metadata
 
 permalink: pretty
+home_url: https://ccl.gachon.ac.kr/fedops
 console_url: https://ccl.gachon.ac.kr/fedops
 
 collections:

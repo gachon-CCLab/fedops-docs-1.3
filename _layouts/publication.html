@@ -13,10 +13,10 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="wrap header-inner">
-        <span class="brand" aria-label="FedOps">
+        <a class="brand" href="{{ site.home_url }}" aria-label="FedOps home">
           <img src="{{ '/assets/images/fedops-navbar-icon.png' | relative_url }}" alt="" />
           <span>FedOps</span>
-        </span>
+        </a>
         <span class="badge">1.3 beta</span>
         <nav class="navigation" aria-label="Primary navigation">
           <a href="{{ '/' | relative_url }}">Docs</a>
@@ -30,7 +30,7 @@
     <footer class="site-footer">
       <div class="wrap footer-inner">
         <div>
-          <strong>FedOps</strong>
+          <a href="{{ site.home_url }}" aria-label="FedOps home"><strong>FedOps</strong></a>
           <p>Gachon University · Cognitive Computing Lab<br />Local intelligence. Shared progress.</p>
         </div>
         <nav aria-label="Footer navigation">
