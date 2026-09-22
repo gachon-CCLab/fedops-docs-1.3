@@ -16,8 +16,8 @@
     "lint:css": "stylelint '**/*.scss'",
     "lint:formatting": "prettier --check '**/*.{scss,js,json}'",
     "format": "prettier --write '**/*.{scss,js,json}'",
-    "format:content": "prettier --write \"v1.3/resources.md\" \"v1.3/task-owner/index.md\" \"_blog/**/*.md\" \"_news/**/*.md\" \"assets/site.css\" \"assets/css/fedops-tokens.css\" \"CONTENT_GUIDE.md\"",
-    "check:content": "prettier --check \"v1.3/resources.md\" \"v1.3/task-owner/index.md\" \"_blog/**/*.md\" \"_news/**/*.md\" \"assets/site.css\" \"assets/css/fedops-tokens.css\" \"CONTENT_GUIDE.md\"",
+    "format:content": "prettier --write \"v1.3/resources.md\" \"v1.3/task-owner/index.md\" \"_blog/**/*.md\" \"_news/**/*.md\" \"assets/site.css\" \"assets/css/fedops-docs.css\" \"assets/css/fedops-tokens.css\" \"CONTENT_GUIDE.md\"",
+    "check:content": "prettier --check \"v1.3/resources.md\" \"v1.3/task-owner/index.md\" \"_blog/**/*.md\" \"_news/**/*.md\" \"assets/site.css\" \"assets/css/fedops-docs.css\" \"assets/css/fedops-tokens.css\" \"CONTENT_GUIDE.md\"",
     "test": "npm run lint"
   },
   "stylelint": {
