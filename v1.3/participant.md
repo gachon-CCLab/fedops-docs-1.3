@@ -33,7 +33,7 @@ task 참여는 Web에서와 studio에서 동일한 작업을 수행할 수 있�
 
 #### 1.1 FedOps Web에서 Federated Task 참여
 
-https://ccl.gachon.ac.kr/fedops
+<https://ccl.gachon.ac.kr/fedops>
 
 FedOps Web에 로그인 후 Registry에 들어간다.
 
