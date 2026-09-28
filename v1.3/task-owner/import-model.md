@@ -14,25 +14,26 @@ guide_note: "작성 중: 기존 Local Model 전환 절차는 보완이 필요한
 # Import a Local Model
 {: .no_toc }
 
-Scenario 02. Local Project를 Federated Task로 전환
+Local Project를 Federated Task로 전환
 {: .fs-5 .fw-400 }
 
 ## 대상
 
-이미 PyTorch/Python 모델 프로젝트와 데이터를 보유하고 있고, 기존 개발 흐름을 유지하면서
-FedOps Federated Task로 전환하려는 Owner
+기존 Python/PyTorch 모델 프로젝트와 데이터를 보유한 Task Owner를 위한 가이드이다. 기존 구현을 FedOps 계약에 연결하고, 로컬 실행을 검증한 뒤 Federated Task로 게시하는 과정을 다룬다.
+
+## 사전 조건
+
+- [Getting Started]({{ '/v1.3/getting-started/' | relative_url }})에 따라 Agent Studio를 실행하고, Web과 Studio에 동일한 계정으로 로그인한다.
+- 가져올 프로젝트의 모델 코드, 데이터 구조와 필요한 라이브러리를 확인한다.
+- 프로젝트 원본을 보관하고, 수정할 프로젝트 폴더를 정한다.
 
 ## 핵심 원칙
 
-Local Project를 Studio에 등록하는 것과 Web의 Federated Task를 만드는 것은 다른 작업이다.
+Local Project를 Studio에서 여는 작업과 Web에 Federated Task를 생성하는 작업은 구분한다. 코드·데이터·실행 환경을 준비한 뒤, 로컬 프로젝트가 의도한 Web Task에 연결되어 있는지 확인하고 게시한다.
 
-```
-Local ML Project
-→ Agent Studio에서 원래 개발 계속
-→ FedOps contract 연결/검증
-→ Web Draft 생성 또는 연결
-→ Release Candidate
-→ Owner Publish
+```text
+Local Project 준비 → FedOps 계약 연결·검증
+→ Web Draft 생성 또는 연결 → Release Candidate 제출 → Owner Publish
 ```
 
 ## 절차
@@ -92,18 +93,15 @@ local update를 만들 수 있는지를 검사한다.
 1. Task Card용 `README.md`를 참여자 관점으로 작성한다.
 2. Release Candidate를 제출한다.
 3. Web에서 Owner Publish한다.
-4. Registry snapshot과 model checksum을 확인한다.
+4. Registry에서 Published Release, snapshot과 model checksum을 확인한다. 원본 데이터가 Release에 포함되지 않았는지도 확인한다.
 
-## 완료 조건
+## 주의 사항
 
-- 기존 프로젝트의 로컬 개발이 유지된다.
-- 한 local project가 정확히 한 Web Task identity와 연결된다.
-- raw dataset은 Release에 포함되지 않는다.
-- 다른 사용자가 Published Release로 동일한 실행 코드를 받을 수 있다.
+- 폴더 이름이나 로컬 경로를 `taskId` 대신 사용하지 않는다.
+- 프로젝트를 Studio에서 열었다는 사실만으로 Web Draft 생성이나 연결이 완료되었다고 판단하지 않는다. 연결된 Task를 별도로 확인한다.
+- 원본과 Studio 복사본을 함께 사용할 경우 실제로 수정하고 실행하는 폴더를 구분한다.
+- 기존 모델 파일을 Initiative Model로 사용하려면 파라미터 구조와 모델 manifest의 호환성 검증을 먼저 통과해야 한다.
 
-### 주의 사항
+## 다음 단계
 
-- path나 폴더 이름을 `taskId` 대신 사용하지 않는다.
-- 기존 프로젝트를 열 때 자동으로 Web Draft를 생성하지 않는다.
-- 기존 model artifact를 Initiative Model로 사용하려면 parameter signature와 model manifest
-검증을 먼저 통과해야 한다.
+게시한 Task의 참여자와 집계 서버를 운영하려면 [Campaign & Server Management]({{ '/v1.3/campaign/' | relative_url }})을 참고한다.

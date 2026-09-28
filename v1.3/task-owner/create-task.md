@@ -8,26 +8,23 @@ lang: "ko"
 guide_source: "매뉴얼 01_Owner_Web_First_Task 3c95dfbe76bb802180e5f00dd9ab12f0.md"
 guide_status: "draft"
 parent: "Task Owner"
-guide_note: "검토 중: Web Draft 정의 등 원문의 작성 메모가 남아 있습니다."
 ---
 
 # Create a New Task
 {: .no_toc }
 
-Scenario 01. Web Draft에서 Registry Publish까지
+Web Draft에서 Registry Publish까지
 {: .fs-5 .fw-400 }
 
 ## 대상
 
-FedOps Web에서 새 Federated Task를 만든 뒤 Agent Studio에서 구현하려는 Task Owner.
+FedOps Web에서 새 Federated Task를 만들고, Agent Studio에서 모델과 학습 코드를 구현하려는 Task Owner를 위한 가이드이다. Web Draft 생성부터 로컬 학습, Release 검증, Registry 게시와 참여자 승인까지 다룬다.
 
 ## 사전 조건
 
-- [Getting Started]({{ '/v1.3/getting-started/' | relative_url }})의 설치·실행 과정을 완료
-- FedOps Web 계정으로 로그인
-- Agent Studio가 같은 FedOps 계정으로 로그인
-- Agent Studio Workspace가 host에 연결
-- 사용할 raw dataset은 로컬 장치에 준비
+- [Getting Started]({{ '/v1.3/getting-started/' | relative_url }})에 따라 Agent Studio를 실행하고, Web과 Studio에 동일한 계정으로 로그인한다.
+- Agent Studio의 Workspace가 Host에 연결되어 있는지 확인한다.
+- 학습에 사용할 원본 데이터를 로컬 장치에 준비한다.
 
 ## 절차
 
@@ -74,7 +71,7 @@ Create Federated Task를 클릭한다.
 <aside>
 💡
 
-Web Draft가 뭔데요? 설명 및 정의 필요
+Web Draft란 FedOps Web에서 생성되어 로컬 Workspace와 연결해 개발한 뒤, Publish 전 Release Candidate로 전환되는 Federated Task의 초안 상태를 말한다.
 
 </aside>
 
@@ -152,7 +149,7 @@ FedOps Web에서 작업한다.
 
 ![image.png]({{ '/assets/images/v1.3/manual-01/image-11.png' | relative_url }})
 
-게시된 Federated Task는 Registry에서 확인할 수 있다.
+Registry에서 게시된 Federated Task와 Published Release를 확인한다. Release Candidate 제출만으로 게시가 완료되지는 않는다.
 
 ### 6. Federated Task 참여자 관리
 
@@ -172,8 +169,10 @@ task owner는 participants에 들어가 Approve 여부를 선택한다.
 
 ![image.png]({{ '/assets/images/v1.3/manual-01/image-14.png' | relative_url }})
 
+승인한 사용자가 Participants에서 승인된 상태로 표시되는지 확인한다.
+
 ## 다음 단계
 
-- 집계 서버 시작: [Campaign & Server Management]({{ '/v1.3/campaign/' | relative_url }})
-- 다른 사용자 참여: [Participant: Join & FL]({{ '/v1.3/participant/' | relative_url }})
-- Agent 제작: [Agent Builder & Serving]({{ '/v1.3/agent-builder/' | relative_url }})
+- 연합학습을 시작하려면 [Campaign & Server Management]({{ '/v1.3/campaign/' | relative_url }})에 따라 정책을 저장하고 집계 서버를 준비한다.
+- 참여자의 데이터 준비와 Client 실행 과정은 [Participant: Join & FL]({{ '/v1.3/participant/' | relative_url }})를 참고한다.
+- 준비된 모델을 Agent에 사용하려면 [Agent Builder & Serving]({{ '/v1.3/agent-builder/' | relative_url }})를 참고한다.

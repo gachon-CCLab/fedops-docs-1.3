@@ -15,12 +15,12 @@ guide_status: "draft"
 Federated Task Baseline 작성 가이드
 {: .fs-5 .fw-400 }
 
-Federated Task 작성자가 자신의 모델과 로컬 데이터를 FedOps에 연결할 때 필요한 파일 구성과 주요 함수의 작성 기준을 설명합니다.
+Federated Task 작성자가 자신의 모델과 로컬 데이터를 FedOps에 연결할 때 필요한 파일 구성과 주요 함수의 작성 기준을 설명한다.
 
-완성된 구현 예시는 MNIST 예제를 참고할 수 있습니다.
+완성된 구현 예시는 MNIST 예제를 참고할 수 있다.
 
 <details markdown="1" class="guide-examples">
-<summary>MNIST 완성 예제와 Baseline 코드 보기</summary>
+<summary>MNIST 완성 예제 보기</summary>
 
 - MNIST/
     - conf/config.yaml
@@ -623,6 +623,11 @@ Federated Task 작성자가 자신의 모델과 로컬 데이터를 FedOps에 �
         fingerprints may be sent to FedOps Web.
         ````
         
+</details>
+
+<details markdown="1" class="guide-examples">
+<summary>Baseline 코드 보기</summary>
+
 - baseline/
     - conf/config.yaml
         
@@ -1397,7 +1402,7 @@ Federated Task 작성자가 자신의 모델과 로컬 데이터를 FedOps에 �
 
 ## 1. 수정할 파일
 
-Federated Task를 작성할 때 주로 수정하는 파일은 다음과 같습니다.
+Federated Task를 작성할 때 주로 수정하는 파일은 다음과 같다.
 
 | 파일 | 작성 내용 |
 | --- | --- |
@@ -1410,7 +1415,7 @@ Federated Task를 작성할 때 주로 수정하는 파일은 다음과 같습�
 | requirements.txt | 필요한 라이브러리와 버전 |
 | README.md | Registry에 표시할 Task 설명과 데이터 배치 방법 |
 
-다음 파일과 디렉터리는 FedOps에서 관리하므로 직접 수정하지 않습니다.
+다음 파일과 디렉터리는 FedOps에서 관리하므로 직접 수정하지 않는다.
 
 ```
 federated_task/federated_learning/
@@ -1423,28 +1428,28 @@ uv.lock
 model_release/
 ```
 
-FEDOPS CONTRACT로 표시된 함수는 함수 이름, 인자 순서, 기본값, 키워드 전용 인자를 구분하는 *, 반환 형식을 변경하지 않습니다.
+FEDOPS CONTRACT로 표시된 함수는 함수 이름, 인자 순서, 기본값, 키워드 전용 인자를 구분하는 *, 반환 형식을 변경하지 않는다.
 
-함수 내부 구현과 사용자 모델 클래스의 이름 및 내부 구조는 Task에 맞게 작성할 수 있습니다.
+함수 내부 구현과 사용자 모델 클래스의 이름 및 내부 구조는 Task에 맞게 작성할 수 있다.
 
 ## 2. 로컬 데이터 준비
 
-Agent Studio에서 다음 메뉴를 선택하여 해당 Task의 데이터 폴더를 엽니다.
+Agent Studio에서 다음 메뉴를 선택하여 해당 Task의 데이터 폴더를 연다.
 
 ```
 Workspace > Task Test > Open Data Folder
 ```
 
-이 폴더는 Task 코드와 분리된 계정별 로컬 영역에 위치합니다.
+이 폴더는 Task 코드와 분리된 계정별 로컬 영역에 위치한다.
 
 ```
 <fedops-workspace>/accounts/<account>/.local-data/
 └── federated-tasks/<project>/dataset/
 ```
 
-사용자는 dataset 폴더 안에 Task에서 요구하는 데이터를 배치합니다.
+사용자는 dataset 폴더 안에 Task에서 요구하는 데이터를 배치한다.
 
-예를 들어 train.csv와 test.csv를 사용하는 Task라면 다음과 같이 구성할 수 있습니다.
+예를 들어 train.csv와 test.csv를 사용하는 Task라면 다음과 같이 구성할 수 있다.
 
 ```
 dataset/
@@ -1452,7 +1457,7 @@ dataset/
 └── test.csv
 ```
 
-필요한 데이터 구조는 README.md에 작성하고, 실제 파일 로드는 local_training/data_preparation.py의 load_partition 함수에서 구현합니다.
+필요한 데이터 구조는 README.md에 작성하고, 실제 파일 로드는 local_training/data_preparation.py의 load_partition 함수에서 구현한다.
 
 ```python
 def load_partition(..., *, data_root: str, ...):
@@ -1467,9 +1472,9 @@ def load_partition(..., *, data_root: str, ...):
     # DataLoader 생성
 ```
 
-Agent Studio가 선택된 Data Folder를 data_root로 전달하므로 로컬 데이터의 절대경로를 코드나 config.yaml에 직접 작성하지 않습니다.
+Agent Studio가 선택된 Data Folder를 data_root로 전달하므로 로컬 데이터의 절대경로를 코드나 config.yaml에 직접 작성하지 않는다.
 
-같은 load_partition 함수는 다음 작업에서 사용됩니다.
+같은 load_partition 함수는 다음 작업에서 사용된다.
 
 ```
 Local Train
@@ -1477,13 +1482,13 @@ Participation Readiness
 Federated Learning Client
 ```
 
-원본 데이터와 로컬 경로는 Web, Registry 또는 Release에 포함되지 않아야 합니다.
+원본 데이터와 로컬 경로는 Web, Registry 또는 Release에 포함되지 않아야 한다.
 
 ## 3. config.yaml
 
 ![image.png]({{ '/assets/images/v1.3/developer-guide/image-1.png' | relative_url }})
 
-다음 키는 유지하고 값만 Task에 맞게 작성합니다.
+다음 키는 유지하고 값만 Task에 맞게 작성한다.
 
 ```yaml
 random_seed: 42
@@ -1505,10 +1510,10 @@ local_training:
   batch_size: 32
 ```
 
-- model의 추가 값은 build_model(config)가 사용합니다.
-- dataset.name은 논리적인 데이터 이름입니다. 파일 경로가 아닙니다.
-- 참여 클라이언트 수, FL Round, 집계 전략은 여기 적지 않습니다. FedOps Web의 Campaign/Server Management에서 설정합니다.
-- Task ID, 서버 주소, 포트, 로컬 절대경로, 인증정보를 넣지 않습니다.
+- model의 추가 값은 build_model(config)가 사용한다.
+- dataset.name은 논리적인 데이터 이름이다. 파일 경로가 아니다.
+- 참여 클라이언트 수, FL Round, 집계 전략은 여기 적지 않는다. FedOps Web의 Campaign/Server Management에서 설정한다.
+- Task ID, 서버 주소, 포트, 로컬 절대경로, 인증정보를 넣지 않는다.
 
 ## 4. data_preparation.py
 
@@ -1523,21 +1528,21 @@ local_training:
 | build_contract_probe(batch_size=2) -> Any | label 없는 비민감 배치 입력 반환 |
 | gl_model_torch_validation(batch_size, *, data_root, download=False) | Owner가 허용한 서버 검증 데이터의 DataLoader 반환 |
 
-모든 DataLoader 배치는 기본적으로 다음 형식이어야 합니다.
+모든 DataLoader 배치는 기본적으로 다음 형식이어야 한다.
 
 ```python
 (inputs, targets)
 ```
 
-inputs의 구조는 preprocess(), build_contract_probe(), run_model()에서 모두 같아야 합니다. build_smoke_loaders()에는 실제 참여자 데이터를 사용하지 않습니다.
+inputs의 구조는 preprocess(), build_contract_probe(), run_model()에서 모두 같아야 한다. build_smoke_loaders()에는 실제 참여자 데이터를 사용하지 않는다.
 
-gl_model_torch_validation()도 참여자의 비공개 데이터가 아니라 Owner가 통제하거나 사용 허가를 받은 집계 서버 측 검증 데이터만 사용합니다. 참여자 Data Folder는 집계 서버로 전달되지 않습니다.
+gl_model_torch_validation()도 참여자의 비공개 데이터가 아니라 Owner가 통제하거나 사용 허가를 받은 집계 서버 측 검증 데이터만 사용한다. 참여자 Data Folder는 집계 서버로 전달되지 않는다.
 
 ## 5. model.py
 
 ![image.png]({{ '/assets/images/v1.3/developer-guide/image-3.png' | relative_url }})
 
-모델 클래스 이름과 내부 구조는 자유롭게 작성합니다. 아래 함수 3개는 고정입니다.
+모델 클래스 이름과 내부 구조는 자유롭게 작성한다. 아래 함수 3개는 고정이다.
 
 | 함수 | 입력 | 반드시 반환할 값 |
 | --- | --- | --- |
@@ -1547,10 +1552,10 @@ gl_model_torch_validation()도 참여자의 비공개 데이터가 아니라 Own
 
 중요한 조건
 
-- Owner, 참여자, 집계 서버가 만든 모델의 파라미터 이름·shape·dtype이 모두 같아야 합니다.
-- build_model()에서 데이터를 읽거나 서버에 접속하지 않습니다.
-- 입력이 여러 개라면 run_model()에서 model(*inputs) 또는 model(**inputs)처럼 연결합니다.
-- validate_model_output()은 출력 shape가 계약과 다르면 ValueError를 발생시킵니다.
+- Owner, 참여자, 집계 서버가 만든 모델의 파라미터 이름·shape·dtype이 모두 같아야 한다.
+- build_model()에서 데이터를 읽거나 서버에 접속하지 않는다.
+- 입력이 여러 개라면 run_model()에서 model(*inputs) 또는 model(**inputs)처럼 연결한다.
+- validate_model_output()은 출력 shape가 계약과 다르면 ValueError를 발생시킨다.
 
 ## 6. training.py
 
@@ -1562,10 +1567,10 @@ train_model(
 ) -> float
 ```
 
-- 전달받은 model을 제자리에서 학습합니다.
-- max_batches가 있으면 반드시 그 수에서 중단합니다.
-- 종료 전에 모델을 CPU로 옮깁니다.
-- 유한한 평균 학습 loss 한 개를 Python float로 반환합니다.
+- 전달받은 model을 제자리에서 학습한다.
+- max_batches가 있으면 반드시 그 수에서 중단한다.
+- 종료 전에 모델을 CPU로 옮긴다.
+- 유한한 평균 학습 loss 한 개를 Python float로 반환한다.
 
 ```python
 evaluate_model(
@@ -1573,19 +1578,19 @@ evaluate_model(
 ) -> tuple[float, float, dict[str, float]]
 ```
 
-정확히 다음 순서로 반환합니다.
+정확히 다음 순서로 반환한다.
 
 ```python
 (평균_loss, primary_metric, 추가_metric_dict)
 ```
 
-예: (0.12, 0.95, {"f1_score": 0.94}). 모든 값은 유한한 Python float여야 합니다. 학습 진행 그래프가 필요하면 기존 emit_training_metrics()와 emit_evaluation_metrics() 호출을 학습·평가 반복문 안에 둡니다.
+예: (0.12, 0.95, {"f1_score": 0.94}). 모든 값은 유한한 Python float여야 한다. 학습 진행 그래프가 필요하면 기존 emit_training_metrics()와 emit_evaluation_metrics() 호출을 학습·평가 반복문 안에 둔다.
 
 ## 7. Manifest.json
 
 ![image.png]({{ '/assets/images/v1.3/developer-guide/image-5.png' | relative_url }})
 
-tool_ai/manifest.json에는 Agent Builder가 모델을 호출하는 데 필요한 정보를 작성합니다.
+tool_ai/manifest.json에는 Agent Builder가 모델을 호출하는 데 필요한 정보를 작성한다.
 
 ```json
 {
@@ -1609,24 +1614,24 @@ tool.py의 고정 계약:
 | build_tool_smoke_payload() | 실제 데이터가 아닌 안전한 테스트 payload 반환 |
 | build_tool_data_sample(data_root, index=0) | 선택한 로컬 데이터 한 건을 {"payload": {...}, "metadata": {...}}로 변환하는 선택 계약 |
 
-predict()는 로컬학습과 같은 preprocess()와 같은 모델 구조를 사용해야 합니다.
+predict()는 로컬학습과 같은 preprocess()와 같은 모델 구조를 사용해야 한다.
 
-학습용 모델과 Tool 전용 모델을 따로 만들지 않습니다. manifest의 sources에 task-data를 두고 로컬 데이터 기반 추론을 제공하려면 build_tool_data_sample()도 구현합니다.
+학습용 모델과 Tool 전용 모델을 따로 만들지 않는다. manifest의 sources에 task-data를 두고 로컬 데이터 기반 추론을 제공하려면 build_tool_data_sample()도 구현한다.
 
 ## 9. requirements.txt
 
-requirements.txt는 한 줄에 하나씩 정확한 버전을 적습니다.
+requirements.txt는 한 줄에 하나씩 정확한 버전을 적는다.
 
 ```
 torch==2.8.0
 numpy==1.26.4
 ```
 
-환경 설치는 Agent Studio의 Sync Environment가 담당합니다. uv.lock과 pyproject.toml은 직접 수정하지 않습니다.
+환경 설치는 Agent Studio의 Sync Environment가 담당한다. uv.lock과 pyproject.toml은 직접 수정하지 않는다.
 
 ## 10. Readme.md
 
-README.md에는 최소한 다음 내용을 작성합니다.
+README.md에는 최소한 다음 내용을 작성한다.
 
 - 모델의 목적과 주요 성능 지표
 - 사용자가 Data Folder에 넣을 정확한 파일·디렉터리 구조
@@ -1634,9 +1639,7 @@ README.md에는 최소한 다음 내용을 작성합니다.
 - 로컬학습 및 연합학습 참여 방법
 - 모델의 한계와 개인정보 보호 주의사항
 
-README.md 파일은 반드시 아래의 제목을 포함한 구조로 작성되어야합니다.
-
-(작성하지 않고 진행시, Check Release Readiness에서 진행 불가능)
+README.md에는 아래 제목을 반드시 포함해야 한다. 제목이 없으면 Check Release Readiness를 통과할 수 없다.
 
 ```markdown
 ## Federated participation, 
@@ -1648,15 +1651,15 @@ README.md 파일은 반드시 아래의 제목을 포함한 구조로 작성되�
 
 ## 11. 작성 후 확인
 
-Federated Task 작성이 완료되면 다음 항목을 확인합니다.
+Federated Task 작성이 완료되면 다음 항목을 확인한다.
 
 | 항목 | 확인 내용 |
 | --- | --- |
-| 함수 계약 | 고정 함수의 이름, 인자, 반환 형식을 유지했는지 확인합니다. |
-| 입력 구조 | 실제 데이터와 smoke/probe 데이터의 입력 구조가 동일한지 확인합니다. |
-| 데이터 경로 | load_partition이 전달받은 data_root만 사용하는지 확인합니다. |
-| 모델 구조 | 모델의 파라미터 구조가 모든 실행 환경에서 동일한지 확인합니다. |
-| Tool AI | Tool manifest, predict, preprocess의 입력 계약이 일치하는지 확인합니다. |
-| 라이브러리 | requirements.txt에 사용하는 모든 라이브러리의 버전을 지정했는지 확인합니다. |
-| Release | 원본 데이터, 절대경로, 인증정보가 Release에 포함되지 않았는지 확인합니다. |
-| Readiness | Local Train과 Release/Participation Readiness가 정상적으로 통과하는지 확인합니다. |
+| 함수 계약 | 고정 함수의 이름, 인자, 반환 형식을 유지했는지 확인 |
+| 입력 구조 | 실제 데이터와 smoke/probe 데이터의 입력 구조가 동일한지 확인 |
+| 데이터 경로 | load_partition이 전달받은 data_root만 사용하는지 확인 |
+| 모델 구조 | 모델의 파라미터 구조가 모든 실행 환경에서 동일한지 확인 |
+| Tool AI | Tool manifest, predict, preprocess의 입력 계약이 일치하는지 확인 |
+| 라이브러리 | requirements.txt에 사용하는 모든 라이브러리의 버전을 지정했는지 확인 |
+| Release | 원본 데이터, 절대경로, 인증정보가 Release에 포함되지 않았는지 확인 |
+| Readiness | Local Train과 Release/Participation Readiness가 정상적으로 통과하는지 확인 |

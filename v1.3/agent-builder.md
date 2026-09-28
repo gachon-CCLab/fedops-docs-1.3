@@ -12,24 +12,22 @@ guide_status: "draft"
 # Agent Builder & Serving
 {: .no_toc }
 
-Scenario 04. Agent Builder, Test와 Serving
+Agent Builder, Test와 Serving
 {: .fs-5 .fw-400 }
 
 ## 대상
 
-Federated Task의 LLM 또는 AI model을 Federated AI Agent의 구성 요소로 사용하려는 사용자.
+준비된 LLM이나 Tool AI를 구성요소로 사용해 Federated AI Agent를 만들려는 사용자를 위한 가이드이다. 모델 선택과 Harness 구성, 테스트·Build, 로컬 실행과 Serving API 사용까지 다룬다.
 
 ![3_AgentImprove.png]({{ '/assets/images/v1.3/manual-04/3_AgentImprove.png' | relative_url }})
 
-그림처럼 Agent Build는 선택한 정확한 Model Version을 고정한다. 개선할 때는 Agent 전체가 아니라
-Federated LLM 또는 Tool AI 하나를 선택해 그 Source Federated Task에서 연합학습한다.
+Agent Build는 선택한 모델 버전을 고정한다. 구성 모델을 개선하려면 해당 모델의 Source Federated Task에서 연합학습을 진행하고, 새 버전으로 Agent를 다시 Build한다.
 
 ## 사전 조건
 
-- 사용할 Federated Task가 현재 계정의 Owned 또는 Approved Joined Task다.
-- Task가 Agent Studio Workspace에 열려 있다.
-- Tool AI는 Local Train 또는 FL로 준비된 compatible model version이 있다.
-- Task Data adapter와 Tool manifest 검증을 통과했다.
+- Agent Studio에 로그인한다. Federated 모델이나 Tool AI를 사용할 경우 Task가 Owned 또는 Approved Joined 상태인지 확인한다.
+- 사용할 모델 버전이 로컬에 준비되어 있는지 확인한다.
+- Task Data로 테스트할 경우 해당 데이터와 Tool 입력 형식을 확인한다.
 
 ## 절차
 
@@ -211,10 +209,10 @@ ENDPOINTS를 통해 API 형식을 확인할 수 있다.
 
 ![image.png]({{ '/assets/images/v1.3/manual-04/image-15.png' | relative_url }})
 
-## 완료 조건
+## 문제가 발생했을 때
 
-- Base LLM 하나와 선택한 모든 Tool AI가 로컬에 준비된다.
-- 여러 Tool 중 Harness와 schema에 맞는 Tool이 선택된다.
-- raw Task Data path가 Web이나 Base LLM에 직접 노출되지 않는다.
-- build가 source/model/Harness fingerprint를 고정한다.
-- chat와 direct predict API가 같은 Tool contract로 동작한다.
+- 모델을 선택하거나 준비할 수 없으면 Task의 소유·참여 승인 상태, Workspace와 모델 다운로드 상태를 확인한다.
+- 샘플을 불러오거나 예측할 수 없으면 Task Data, sample adapter와 Tool manifest의 입력 형식을 확인한다.
+- 기대한 Tool이 호출되지 않으면 Harness의 호출 조건과 Tool routing trace를 확인한다.
+- API 호출이 실패하면 Serving 상태, port, token과 요청 형식을 현재 화면의 호출 예제와 비교한다.
+- 새 모델이 반영되지 않으면 해당 버전으로 새 Build를 만들었는지와 사용 중인 Build를 확인한다.

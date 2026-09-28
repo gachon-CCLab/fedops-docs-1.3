@@ -12,18 +12,18 @@ guide_status: "draft"
 # Participant: Join & FL
 {: .no_toc }
 
-Scenario 03. Participant Join과 Federated Learning
+Participant Join과 Federated Learning
 {: .fs-5 .fw-400 }
 
 ## 대상
 
-Registry의 Federated Task에 참여해 자신의 로컬 데이터로 연합학습하려는 사용자
+Registry에 공개된 Federated Task에 참여해 자신의 로컬 데이터로 연합학습하려는 사용자를 위한 가이드이다. 참여 요청과 승인, Workspace 준비, Client 실행과 종료까지 다룬다.
 
 ## 사전 조건
 
-- Task가 Public Registry에 Published 상태로 존재한다.
-- Agent Studio가 참여에 사용할 FedOps 계정으로 로그인되어 있다.
-- 참여할 데이터는 현재 장치에 있다.
+- [Getting Started]({{ '/v1.3/getting-started/' | relative_url }})에 따라 Agent Studio를 실행하고 참여에 사용할 계정으로 로그인한다.
+- 참여할 Task가 Registry에 게시되어 있는지 확인한다.
+- Task의 README에서 데이터 형식을 확인하고, 사용할 데이터를 현재 장치에 준비한다.
 
 ## 절차
 
@@ -144,27 +144,21 @@ Check Participation Readiness(workspace에서도 가능하다)를 눌러 검증�
 
 ![image.png]({{ '/assets/images/v1.3/manual-03/image-15.png' | relative_url }})
 
-#### 종료와 재참여 정책
+## 종료와 재참여
 
-- 진행 중 **stop client**는 이 장치의 참여만 즉시 중단한다
-- Server는 저장된 clients-per-round 정책을 유지하고 다른 eligible Client를 기다린다.
-- Campaign 완료 후 최종 Global Model을 받은 것을 확인하고 Client session을 종료한다.
-- 참여 탈퇴 정책이 적용된 Task는 최소 한 번의 완료된 FL 참여 후 Leave할 수 있다.
-- 이후 다시 Join 요청을 보낼 수 있다.
+- 학습 도중 **Stop Client**를 선택하면 현재 장치의 참여를 중단한다. 다른 참여자의 Client나 전체 Campaign을 종료하는 동작은 아니다.
+- Client가 중단되어도 서버의 Clients per round 값은 자동으로 줄어들지 않는다. 서버는 저장된 정책에 따라 참여 가능한 다른 Client를 기다린다.
+- Campaign이 완료되면 최종 Global Model 수신과 참여 기록을 확인한 뒤 **Finish Client Session**으로 세션을 종료한다. 완료된 참여 기록은 Agent Studio를 다시 실행한 뒤에도 확인한다.
+- Client 세션 종료와 Task 탈퇴는 구분한다. 최소 한 번의 완료된 참여를 요구하는 Task는 해당 조건을 충족한 뒤 Leave를 진행한다.
+- 탈퇴 후 다시 참여하려면 Join을 요청하고, 참여 상태와 로컬 준비 상태를 다시 확인한다.
 
-### 완료 조건
+## 문제가 발생했을 때
 
-- Client가 Task ID로 올바른 집계 서버에 연결된다.
-- raw dataset이 Web으로 업로드되지 않는다.
-- Round별 local metric과 model flow가 실시간으로 갱신된다.
-- 완료된 참여 history가 Agent Studio 재시작 후에도 남아 있다.
-- Web Monitoring에는 전체/허용된 client metric이, Studio에는 내 Client metric만 표시된다.
+다음 순서로 확인한다. 문제가 해결된 단계에서 Readiness 또는 Client 실행을 다시 시도한다.
 
-### 실패 시 확인 순서
-
-1. 참여 상태가 **approved**인지 확인한다.
-2. Workspace의 taskId와 Registry Task가 같은지 확인한다.
-3. data fingerprint 변경 후 Readiness를 다시 실행했는지 확인한다.
-4. Server가 Live이고 Campaign Run이 생성됐는지 확인한다.
-5. taskId가 현재 runtime endpoint와 일치하는지 확인한다.
-6. parameter signature/model format compatibility 오류를 확인한다.
+1. **참여 권한:** 참여 상태가 Approved인지, 승인받은 계정으로 Studio에 로그인했는지 확인한다.
+2. **Task 연결:** Workspace의 `taskId`가 참여하려는 Registry Task와 같은지 확인한다.
+3. **로컬 준비:** Python 환경과 데이터 배치가 Task의 요구사항에 맞는지 확인한다. 데이터를 변경했다면 Participation Readiness를 다시 실행한다.
+4. **서버 상태:** Server가 Live인지, 현재 Campaign Run이 시작되었는지 확인한다. 서버가 대기 중이면 Owner에게 실행 상태를 확인한다.
+5. **연결 오류:** Client 로그에서 해당 Task의 현재 서버 endpoint에 연결하고 있는지 확인한다.
+6. **모델 호환성:** 파라미터 구조나 모델 형식 오류가 있으면 사용 중인 Release와 모델 버전을 확인한다. 오류가 계속되면 Task ID, 버전과 오류 로그를 Owner에게 전달한다.

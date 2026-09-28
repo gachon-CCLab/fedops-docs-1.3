@@ -30,7 +30,8 @@ errors = []
 image_count = 0
 for path in paths:
     page = cache.setdefault(path, Page(path))
-    image_count += len(page.images)
+    # Count guide figures only; the shared header logo appears on every page.
+    image_count += sum('/assets/images/v1.3/' in src for src in page.images)
     assert 'FEDOPSCODEBLOCK' not in path.read_text(encoding='utf-8')
     for href in page.links + page.images:
         url = urlsplit(href)

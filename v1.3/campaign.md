@@ -13,18 +13,18 @@ guide_note: "검토 중: Campaign 저장과 서버 생성 순서를 확인해야
 # Campaign & Server Management
 {: .no_toc }
 
-Scenario 05. Owner/Operator Campaign과 Server Management
+Owner/Operator Campaign과 Server Management
 {: .fs-5 .fw-400 }
 
 ## 대상
 
-Published Federated Task의 연합학습 정책과 Kubernetes 집계 서버를 관리하는 Task Owner.
+공개된 Federated Task의 연합학습을 운영하는 Task Owner를 위한 가이드이다. Campaign 정책 저장, 집계 서버 준비·실행, 학습 상태와 Global Model 결과 확인까지 다룬다.
 
 ## 사전 조건
 
-- Task에 Published Release가 있다.
-- Initiative Model 또는 이전 Global Model이 사용 가능한 상태다.
-- 필요한 Participant가 승인되어 있다.
+- 운영할 Task에 Published Release가 있는지 확인한다.
+- 시작 모델로 사용할 Initiative Model 또는 이전 Global Model이 준비되어 있는지 확인한다.
+- 필요한 Participant를 승인하고, 실제 참여할 수 있는 Client 수를 확인한다.
 
 ## 절차
 
@@ -113,7 +113,7 @@ server start by round
 
 ![image.png]({{ '/assets/images/v1.3/manual-05/image-6.png' | relative_url }})
 
-학습이 다 종료되면 FL Server Management가 아래와 같이 변경되며 global model version이 추가된다.
+학습이 다 종료되면 FL Server Management가 아래와 같이 변경되며 global model version이 추가된다. 서버 종료 상태와 새 Global Model 버전 등록을 함께 확인한다.
 
 > 
 > 
@@ -148,10 +148,9 @@ Monitoring에서 아래 내용을 확인할 수 있다.
 
 ![image.png]({{ '/assets/images/v1.3/manual-05/image-9.png' | relative_url }})
 
-## 완료 조건
+## 문제가 발생했을 때
 
-- 저장한 Campaign 값이 Web, Server process와 Agent Studio에 동일하게 표시된다.
-- Client는 Task ID로 현재 Run의 올바른 Server에 연결된다.
-- Run마다 Round가 1부터 시작한다.
-- 완료 후 process가 종료되고 Global Model version이 정확히 한 번 증가한다.
-- 다음 Run이 이전 최종 Global Model을 Base Model로 사용한다.
+- 서버 리소스가 준비되지 않으면 Runtime overview와 Server logs에서 Deployment, Pod, PVC 상태와 생성 오류를 확인한다.
+- 서버가 실행 중인데 Round가 진행되지 않으면 실제 참여 가능한 Client 수를 Clients per round와 비교한다. 참여자의 Readiness와 연결 상태도 확인한다.
+- Client가 연결되지 않으면 Task ID와 현재 서버 상태가 맞는지 확인한다.
+- 학습 종료 후 모델이 보이지 않으면 전체 Round 완료 여부와 모델 저장·등록 로그를 확인한다. 중간 중단과 정상 완료를 구분한다.

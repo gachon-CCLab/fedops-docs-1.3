@@ -3,7 +3,7 @@ layout: default
 title: Get started with FedOps
 nav_order: 5
 has_children: true
-permalink: docs/FedOps-Tutorials
+permalink: /docs/FedOps-Tutorials.html
 ---
 
 # Get started with FedOps

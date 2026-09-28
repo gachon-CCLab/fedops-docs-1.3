@@ -3,6 +3,6 @@ layout: default
 title: FedOps LLM
 nav_order: 6
 has_children: true
-permalink: docs/FedOps-LLM
+permalink: /docs/FedOps-LLM.html
 ---
 # FedOps LLM

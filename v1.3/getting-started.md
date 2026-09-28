@@ -15,9 +15,9 @@ guide_status: "draft"
 시작하기: FedOps Agent Studio 설치와 Federated Task 생성
 {: .fs-5 .fw-400 }
 
-> FedOps 1.3을 처음 사용하는 사용자가 Agent Studio를 실행하고 첫 Federated Task를
-생성하는 데 필요한 공통 준비 절차이다
-> 
+## 대상
+
+FedOps 1.3을 처음 사용하는 사용자를 위한 공통 준비 가이드이다. Agent Studio 설치와 실행, 로그인 방법을 확인한 뒤 자신의 역할에 맞는 다음 가이드로 이동한다.
 
 ## 절차
 
@@ -73,6 +73,7 @@ fedops run agent-studio
 ![image.png]({{ '/assets/images/v1.3/manual-00/image.png' | relative_url }})
 
 Agent Studio 로그인 화면이 열리면 FedOps Web에서 사용하는 계정으로 로그인한다.
+로그인 후 자신의 역할에 맞는 다음 가이드를 선택한다.
 
 사용을 마친 뒤에는 다음 명령으로 종료한다.
 
@@ -85,5 +86,6 @@ fedops stop agent-studio
 
 ## 다음 단계
 
-- 직접 Web Draft를 생성하여 개발하려면 [Create a New Task]({{ '/v1.3/task-owner/create-task/' | relative_url }}) 문서를 따른다.
-- 다른 사용자가 공개한 Task에 참여하려면 [Participant: Join & FL]({{ '/v1.3/participant/' | relative_url }}) 문서를 따른다.
+- 새 Federated Task를 만들려면 [Create a New Task]({{ '/v1.3/task-owner/create-task/' | relative_url }})를 따른다.
+- 기존 모델 프로젝트를 연결하려면 [Import a Local Model]({{ '/v1.3/task-owner/import-model/' | relative_url }})을 참고한다. 이 경로는 작성 중인 초안이다.
+- 다른 사용자가 공개한 Task에 참여하려면 [Participant: Join & FL]({{ '/v1.3/participant/' | relative_url }})를 따른다.

@@ -3,7 +3,7 @@ layout: default
 title: FedOps XAI
 nav_order: 10
 has_children: true
-permalink: docs/FedOps-XAI
+permalink: /docs/FedOps-XAI.html
 ---
 
 # FedOps XAI

@@ -8,7 +8,7 @@ docs_version: "1.3"
 
 # Resources
 
-FedOps의 코드, 생태계 자료와 연구 논문을 모았습니다. 외부 예제의 실행 환경과 버전은 각 자료에서 확인하세요.
+FedOps의 코드, 생태계 자료와 연구 논문을 모았다. 외부 예제의 실행 환경과 버전은 각 자료에서 확인한다.
 
 ## 서비스와 코드
 
@@ -18,8 +18,8 @@ FedOps의 코드, 생태계 자료와 연구 논문을 모았습니다. 외부 �
 
 ## Flower 생태계
 
-- [FlowerHub](https://flower.ai/apps/) — Flower 앱을 찾고 공유하는 곳
-- [GFedOps Apps](https://flower.ai/profile/gfedops/apps/) — Gachon CCL의 FedOps 앱 모음
+- [FlowerHub](https://flower.ai/apps/) — Flower 앱을 찾고 공유할 수 있다.
+- [GFedOps Apps](https://flower.ai/profile/gfedops/apps/) — Gachon CCL의 FedOps 앱을 모아 놓았다.
 
 ## 논문
 
@@ -28,4 +28,4 @@ FedOps의 코드, 생태계 자료와 연구 논문을 모았습니다. 외부 �
 
 ## 기존 문서
 
-[FedOps 1.2 Docs]({{ '/v1.2/' | relative_url }})에서 기존 실행 가이드와 LLM·VLM·FedMAP·HPO·XAI 등의 자료를 확인할 수 있습니다.
+[FedOps 1.2 Docs]({{ '/v1.2/' | relative_url }})에서 기존 실행 가이드와 LLM·VLM·FedMAP·HPO·XAI 등의 자료를 확인할 수 있다.
