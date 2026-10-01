@@ -1398,8 +1398,6 @@ Federated Task 작성자가 자신의 모델과 로컬 데이터를 FedOps에 �
 
 </details>
 
-![image.png]({{ '/assets/images/v1.3/developer-guide/image.png' | relative_url }})
-
 ## 1. 수정할 파일
 
 Federated Task를 작성할 때 주로 수정하는 파일은 다음과 같다.

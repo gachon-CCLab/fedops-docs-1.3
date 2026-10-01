@@ -51,7 +51,7 @@ for path in paths:
 data = json.loads((ROOT / 'assets/js/search-data.json').read_text(encoding='utf-8'))
 assert {item['docsVersion'] for item in data.values()} == {'1.2', '1.3'}
 assert (ROOT / 'v1.2/index.html').exists()
-assert image_count == 73, f'Expected 73 guide images, got {image_count}'
+assert image_count == 72, f'Expected 72 guide images, got {image_count}'
 if errors:
     raise SystemExit('\n'.join(errors))
 print(f'PASS: {len(paths)} pages, {image_count} images, local links/anchors, and both search versions.')

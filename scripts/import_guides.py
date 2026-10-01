@@ -128,6 +128,10 @@ def run(source):
             end=text.index('![image.png]')
             examples=text[start:end]
             text=text[:start]+'<details markdown="1" class="guide-examples">\n<summary>MNIST 완성 예제와 Baseline 코드 보기</summary>\n\n'+examples+'\n</details>\n\n'+text[end:]
+            # Omit the module relationship diagram after using it as the example boundary.
+            diagram = f'![image.png]({link("/assets/images/v1.3/developer-guide/image.png")})'
+            asset_count -= text.count(diagram)
+            text = text.replace(diagram + '\n', '')
         for i,block in enumerate(blocks): text=text.replace(f'FEDOPSCODEBLOCK{i:04}TOKEN\n',block)
         text=re.sub(r'^\|\s*\|\s*\|\s*$', '', text,flags=re.M)
         fm={'layout':'default','title':title,'nav_order':order,'permalink':url,'docs_version':'1.3','lang':'ko','guide_source':f.name,'guide_status':'draft'}
