@@ -8,12 +8,13 @@
     <link rel="icon" href="{{ '/assets/images/fedops-navbar-icon.png' | relative_url }}" />
     <link rel="stylesheet" href="{{ '/assets/css/fedops-tokens.css' | relative_url }}" />
     <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}" />
+    <script defer src="{{ '/assets/js/fedops-context.js' | relative_url }}"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="wrap header-inner">
-        <a class="brand" href="{{ site.home_url }}" aria-label="FedOps home">
+        <a class="brand" data-fedops-path="/fedops/" data-fedops-default="{{ site.home_url }}" aria-label="FedOps home">
           <img src="{{ '/assets/images/fedops-navbar-icon.png' | relative_url }}" alt="" />
           <span>FedOps</span>
         </a>
@@ -23,14 +24,15 @@
           <a href="{{ '/blog/' | relative_url }}" {% if page.section == 'blog' %}aria-current="page"{% endif %}>Blog</a>
           <a href="{{ '/news/' | relative_url }}" {% if page.section == 'news' %}aria-current="page"{% endif %}>News</a>
         </nav>
-        <a class="console-link" href="{{ site.console_url }}" target="_blank" rel="noopener noreferrer">Open Console <span aria-hidden="true">↗</span></a>
+        <a class="console-link" data-fedops-path="/fedops/console/task" data-fedops-default="{{ site.console_url }}" target="_blank" rel="noopener noreferrer">Open Console <span aria-hidden="true">↗</span></a>
       </div>
     </header>
+    <p data-fedops-context style="text-align:center;font-size:12px;margin:4px"></p>
     <main id="main">{{ content }}</main>
     <footer class="site-footer">
       <div class="wrap footer-inner">
         <div>
-          <a href="{{ site.home_url }}" aria-label="FedOps home"><strong>FedOps</strong></a>
+          <a data-fedops-path="/fedops/" data-fedops-default="{{ site.home_url }}" aria-label="FedOps home"><strong>FedOps</strong></a>
           <p>Gachon University · Cognitive Computing Lab<br />Local intelligence. Shared progress.</p>
         </div>
         <nav aria-label="Footer navigation">

@@ -40,6 +40,7 @@ jobs:
         run: |
           npm ci --ignore-scripts
           npm run check:content
+          node --test scripts/fedops-context.test.cjs
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:

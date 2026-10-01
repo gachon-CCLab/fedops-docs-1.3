@@ -1,6 +1,6 @@
 <header class="docs-masthead">
   <div class="docs-masthead-inner">
-    <a class="docs-brand" href="{{ site.home_url }}" aria-label="FedOps home">
+    <a class="docs-brand" data-fedops-path="/fedops/" data-fedops-default="{{ site.home_url }}" aria-label="FedOps home">
       <img src="{{ '/assets/images/fedops-navbar-icon.png' | relative_url }}" alt="" width="36" height="36">
       <span>FedOps</span>
     </a>
@@ -10,6 +10,7 @@
       <a href="{{ '/blog/' | relative_url }}">Blog</a>
       <a href="{{ '/news/' | relative_url }}">News</a>
     </nav>
-    <a class="docs-console" href="{{ site.console_url }}" target="_blank" rel="noopener noreferrer">Open Console <span aria-hidden="true">↗</span><span class="docs-sr-only"> (opens in a new tab)</span></a>
+    <a class="docs-console" data-fedops-path="/fedops/console/task" data-fedops-default="{{ site.console_url }}" target="_blank" rel="noopener noreferrer">Open Console <span aria-hidden="true">↗</span><span class="docs-sr-only"> (opens in a new tab)</span></a>
   </div>
 </header>
+<p data-fedops-context style="text-align:center;font-size:12px;margin:4px"></p>
