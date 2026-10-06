@@ -1,5 +1,5 @@
 ---
-title: "Introducing FedOps 1.3"
+title: "FedOps 1.3 Announcement"
 summary: "Federated AI AgentOps: share and train models together, build your own Agent, and keep improving its component models."
 category: RELEASE
 author: "CCL"
