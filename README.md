@@ -1,3 +1,19 @@
+# FedOps Docs · Blog · News
+
+FedOps의 Docs, Blog, News 콘텐츠를 관리하고 GitHub Pages로 함께 배포하는 저장소입니다.
+
+공개 사이트: [FedOps Docs](https://gachon-cclab.github.io/fedops-docs-1.3/)
+
+## 콘텐츠 작성 및 수정
+
+Docs·News·Blog를 작성하거나 수정하기 전에 [CONTENT_GUIDE.md](./CONTENT_GUIDE.md)를 읽고, 해당 파일의 작성 및 검증 절차를 따르세요. 작성자와 AI 모두 이 가이드를 먼저 확인해야 합니다.
+
+가이드에는 저장소 구조, 영역별 속성과 예시, Notion 원본 갱신, 내부 링크와 이미지, 로컬 미리보기, 검증 및 배포 절차가 정리되어 있습니다.
+
+## 기반 테마 안내
+
+아래는 기반 테마인 Just the Docs의 원본 안내입니다. 이 저장소의 콘텐츠 작성과 배포에는 위의 `CONTENT_GUIDE.md`를 기준으로 사용하세요.
+
 <p align="right">
     <a href="https://badge.fury.io/rb/just-the-docs"><img src="https://badge.fury.io/rb/just-the-docs.svg" alt="Gem version"></a> <a href="https://github.com/just-the-docs/just-the-docs/actions/workflows/ci.yml"><img src="https://github.com/just-the-docs/just-the-docs/actions/workflows/ci.yml/badge.svg" alt="CI Build status"></a> <a href="https://app.netlify.com/sites/just-the-docs/deploys"><img src="https://api.netlify.com/api/v1/badges/9dc0386d-c2a4-4077-ad83-f02c33a6c0ca/deploy-status" alt="Netlify Status"></a>
 </p>
