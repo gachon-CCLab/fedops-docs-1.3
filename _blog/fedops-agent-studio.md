@@ -2,7 +2,7 @@
 title: "FedOps Agent Studio"
 summary: "코드와 로컬 데이터를 준비하고, 연합학습에 참여하고, 학습한 모델을 나만의 Agent와 서비스에 연결하기까지. FedOps Agent Studio를 만든 배경과 사용 흐름을 소개합니다."
 category: Blog
-author: "FedOps"
+author: "JinYong Jeong"
 date: 2026-10-02
 show_date: true
 display_order: 0

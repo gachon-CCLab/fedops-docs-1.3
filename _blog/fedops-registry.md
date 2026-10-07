@@ -2,7 +2,7 @@
 title: "FedOps Registry"
 summary: "From publishing and discovering federated learning Tasks to training together with the same Release. This post introduces why we built the FedOps Registry and how it works."
 category: Blog
-author: "Min Huck Jung"
+author: "MinHuck Jung"
 date: 2026-10-06
 show_date: true
 display_order: -2
