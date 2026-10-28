@@ -24,14 +24,17 @@ class Page(HTMLParser):
             self.images.append(attrs.get('src', ''))
 
 paths = [ROOT / 'index.html', *sorted((ROOT / 'v1.3').rglob('*.html'))]
-assert len(paths) == 10, f'Expected 10 pages, got {len(paths)}'
+# 10 guide pages + 52 Tutorial pages (Korean 26, English 26).
+assert len(paths) == 62, f'Expected 62 pages, got {len(paths)}'
 cache = {}
 errors = []
 image_count = 0
+tutorial_image_count = 0
 for path in paths:
     page = cache.setdefault(path, Page(path))
     # Count guide figures only; the shared header logo appears on every page.
     image_count += sum('/assets/images/v1.3/' in src for src in page.images)
+    tutorial_image_count += sum('/tutorial/images/' in src for src in page.images)
     assert 'FEDOPSCODEBLOCK' not in path.read_text(encoding='utf-8')
     for href in page.links + page.images:
         url = urlsplit(href)
@@ -52,6 +55,7 @@ data = json.loads((ROOT / 'assets/js/search-data.json').read_text(encoding='utf-
 assert {item['docsVersion'] for item in data.values()} == {'1.2', '1.3'}
 assert (ROOT / 'v1.2/index.html').exists()
 assert image_count == 72, f'Expected 72 guide images, got {image_count}'
+assert tutorial_image_count == 176, f'Expected 176 Tutorial images (88 per language), got {tutorial_image_count}'
 if errors:
     raise SystemExit('\n'.join(errors))
-print(f'PASS: {len(paths)} pages, {image_count} images, local links/anchors, and both search versions.')
+print(f'PASS: {len(paths)} pages, {image_count} guide images, {tutorial_image_count} Tutorial images, local links/anchors, and both search versions.')

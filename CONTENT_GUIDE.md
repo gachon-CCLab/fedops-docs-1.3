@@ -334,6 +334,30 @@ Markdown은 UTF-8로 저장하며, 날짜는 `YYYY-MM-DD`, 참·거짓은 따옴
 
 Jekyll은 Markdown의 코드 블록 안에서도 Liquid 표현식을 처리합니다. 사용 예시 코드에 `{{ ... }}` 또는 `{% ... %}`를 문자 그대로 보여줘야 한다면 해당 예시를 Liquid의 `{% raw %}`와 `{% endraw %}`로 감싸서 표시되는 코드를 확인합니다. 실제 내부 링크에 사용하는 `relative_url`은 실행되어야 하므로 감싸지 않습니다.
 
+## FedOps 튜토리얼 — `tutorial/`
+
+FedOps 튜토리얼은 공개 데이터셋 하나로 연합학습의 두 역할(Task Owner, Client)과 모델 활용을 따라 하며 배우는 문서입니다. 버튼 순서뿐 아니라 각 옵션이 무엇을 정하는지, 바꾸면 무엇이 달라지는지, 그 밑의 연합학습 배경을 함께 설명합니다. 수동 관리 문서이며 Notion 가져오기 대상이 아닙니다. 이 폴더가 원본입니다.
+
+| 경로                  | 내용                                                                                                          |
+| --------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `tutorial/index.md`   | 첫 페이지. 사이드바 `FedOps 튜토리얼`, 주소 `/v1.3/tutorial/`                                                 |
+| `tutorial/basics/`    | 공통 기초 (연합학습 개념, 데이터와 모델, 준비). 주소 `/v1.3/tutorial/basics/`                                 |
+| `tutorial/owner/`     | Task Owner 트랙 1~7장                                                                                         |
+| `tutorial/client/`    | Client 트랙 1~5장                                                                                             |
+| `tutorial/model-use/` | 모델 활용 트랙 (Agent, Serving API, 앱)                                                                       |
+| `tutorial/reference/` | 문제 해결, 용어집                                                                                             |
+| `tutorial/images/`    | 스크린샷. 쓰지 않는 그림은 두지 않음                                                                          |
+| `tutorial/en/`        | 영어판. 사이드바 `FedOps Tutorial (English)`, 주소 `/v1.3/tutorial/en/`, 그림은 `tutorial/images/` 를 같이 씀 |
+
+- 트랙 페이지는 `parent`(트랙 제목)와 `grand_parent: "FedOps 튜토리얼"`을 함께 씁니다. 제목이 사이드바 연결 키이므로 트랙 제목을 바꾸면 하위 페이지도 함께 고칩니다.
+- 단계 페이지는 같은 틀을 지킵니다: 📍 지금 어디(`{: .note }`, 두 줄이면 첫 줄 끝에 `<br>`) → 🎯 이 단계에서 하는 일(`{: .important }`) → 따라 하기 → ⚙️ 옵션 해설 → 📚 연합학습 배경(`<details>`) → ✅ 체크리스트.
+- 옵션 해설에는 확인한 것만 단정합니다. 화면이나 소스로 확인하지 못한 동작은 "확인하지 못함"이라고 씁니다.
+- 영어판(`tutorial/en/`)은 한국어판과 같은 구조·주소(`/v1.3/tutorial/en/...`)로 둡니다. 화면의 한국어 문구·프로그램 출력은 그대로 두고 괄호에 영어 번역을 붙입니다. 한국어판을 고치면 영어판도 함께 고칩니다.
+- 폴더가 `v1.3/` 밖에 있으므로 모든 파일에 `docs_version: "1.3"`과 `lang`을 직접 씁니다.
+- 스크린샷은 계정 이름, 개인 경로, Task ID, 서버 주소, 토큰을 흐리게 처리한 뒤 넣습니다. 이 저장소는 공개 저장소입니다.
+- 실습 템플릿 코드는 이 저장소에 두지 않습니다. `gachon-CCLab/FedOps-hands-on-guide`에 있습니다.
+- 페이지나 그림을 더하거나 빼면 `scripts/check_site.py`의 페이지 수와 Tutorial 그림 수 기대값을 함께 고칩니다.
+
 ## 미리보기 및 배포
 
 모든 명령은 저장소 루트에서 실행합니다. 빌드에는 Ruby·Bundler, 포맷 검사에는 Node.js·npm, 생성 결과 검사에는 Python이 필요합니다. Windows에서 Jekyll은 이 PC에 준비된 WSL Ubuntu-24.04 환경으로 실행합니다. 환경이 다른 경우 저장소의 `Gemfile`, `Gemfile.lock`, `package-lock.json`에 맞춰 의존성을 준비합니다.
