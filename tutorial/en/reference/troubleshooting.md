@@ -100,6 +100,13 @@ lang: en
 </details>
 
 <details markdown="1">
+<summary>I can't sign in to Studio, or I signed in but can't see my Task</summary>
+
+Check that **FedOps server** on the Studio sign-in screen is `Main FedOps`. Accounts and Tasks are separate on each server, so if you pick another server (AWS, Kakao Cloud, and so on), your Main account will not sign in or Main's Tasks will not appear.
+
+</details>
+
+<details markdown="1">
 <summary>Is my data uploaded anywhere?</summary>
 
 No. The data stays only in `~/fedops-workspace/.../.local-data/`; the Registry holds code, models, and the README, and only model parameters travel during federated learning.

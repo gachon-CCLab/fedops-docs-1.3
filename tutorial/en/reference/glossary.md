@@ -21,6 +21,7 @@ lang: en
 | **FedOps Web** | The FedOps home page. Introduction and docs |
 | **FedOps Console** | The web workspace. Tasks, Registry, participants, servers, monitoring |
 | **Agent Studio** | A development tool running in Docker on your PC. Code, data, training, participation, Agents |
+| **FedOps server** | The FedOps installation Studio connects to, where aggregation happens. Main FedOps (lab on-premises), AWS, Kakao Cloud. This tutorial uses Main FedOps |
 
 ## FedOps objects
 

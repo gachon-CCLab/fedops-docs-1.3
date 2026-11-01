@@ -78,6 +78,21 @@ One such loop is a **round**. Repeating rounds makes the Global Model behave as 
 
 > **Why Studio runs on my PC:** the data must not leave my PC. Training happens in Studio (my PC); only the merging happens on the server.
 
+<details markdown="1">
+<summary>📚 Where does aggregation happen? — FedOps servers</summary>
+
+Aggregation — receiving the parameters each participant sends and merging them — happens on a FedOps server. FedOps is not a service tied to one place: the same platform can be installed and run on different infrastructure.
+
+| FedOps server | Where aggregation runs |
+| --- | --- |
+| **Main FedOps** | The on-premises Kubernetes cluster of the CCL lab at Gachon University — the one this tutorial uses |
+| **AWS** | Amazon Web Services cloud |
+| **Kakao Cloud** | Kakao Cloud |
+
+Whichever server you use, **data stays on each participant's PC and only trained parameters go to the server**. An institution can pick where aggregation runs to fit its data policy or budget. You choose which server to connect to in the **FedOps server** field on the Agent Studio sign-in screen ([3. Setup]({{ '/v1.3/tutorial/en/basics/setup/' | relative_url }})).
+
+</details>
+
 ## The life of a Task in FedOps
 
 This is the storyline the whole tutorial follows. Note who changes each state.

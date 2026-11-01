@@ -21,6 +21,7 @@ lang: ko
 | **FedOps Web** | FedOps 홈페이지. 소개와 문서 |
 | **FedOps Console** | 웹 작업 화면. Task·Registry·참여자·서버·모니터링 |
 | **Agent Studio** | 내 PC 에서 Docker 로 도는 개발 도구. 코드·데이터·학습·참여·Agent |
+| **FedOps server** | Studio 가 접속하는 FedOps 설치본. 집계가 일어나는 곳. Main FedOps(연구실 온프렘)·AWS·Kakao Cloud. 이 튜토리얼은 Main FedOps |
 
 ## FedOps 의 대상
 

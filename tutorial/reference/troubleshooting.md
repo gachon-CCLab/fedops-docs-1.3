@@ -100,6 +100,13 @@ lang: ko
 </details>
 
 <details markdown="1">
+<summary>Studio 에 로그인이 안 되거나, 로그인했는데 내 Task 가 안 보여요</summary>
+
+Studio 로그인 화면의 **FedOps server** 가 `Main FedOps` 인지 확인하세요. 계정·Task 는 서버마다 따로라서, 다른 서버(AWS·Kakao Cloud 등)를 고르면 Main 계정으로 로그인되지 않거나 Main 의 Task 가 보이지 않습니다.
+
+</details>
+
+<details markdown="1">
 <summary>내 데이터가 어딘가로 올라가나요?</summary>
 
 아니요. 데이터는 `~/fedops-workspace/.../.local-data/` 에만 있고, Registry 에는 코드·모델·README, 연합학습 중에는 모델 파라미터만 오갑니다.

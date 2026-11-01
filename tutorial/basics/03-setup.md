@@ -74,8 +74,11 @@ fedops run agent-studio
 
 로그인은 **두 곳에 따로** 합니다.
 
-1. Agent Studio 첫 화면에서 FedOps 계정으로 로그인
+1. Agent Studio 첫 화면에서 **FedOps server** 가 **`Main FedOps`** 인지 확인하고 FedOps 계정으로 로그인
 2. 브라우저에서 FedOps Console 에도 로그인 — FedOps Web([https://ccl.gachon.ac.kr/fedops](https://ccl.gachon.ac.kr/fedops)) 오른쪽 위 **Open Console**, 또는 [https://ccl.gachon.ac.kr/fedops/console](https://ccl.gachon.ac.kr/fedops/console)
+
+{: .note }
+> ⚙️ **FedOps server** — 어느 FedOps 서버에 접속할지, 곧 연합학습 집계를 어디서 할지 정합니다. 온프렘·AWS·Kakao Cloud 등 다른 서버는 **Add server** 에 그 서버 주소를 넣어 추가합니다. 계정·Task 는 서버마다 따로라서, **이 튜토리얼은 `Main FedOps` 그대로** 둡니다.
 
 > Studio 와 Console 은 로그인이 공유되지 않습니다. 두 계정을 쓸 때는 **Studio 와 Console 이 같은 계정**인지 늘 확인하세요. 다르면 "내 Task 가 안 보인다"는 문제가 납니다.
 
@@ -97,6 +100,7 @@ cd FedOps-hands-on-guide/template
 
 - [ ] `docker compose version` 이 버전을 출력한다
 - [ ] [http://localhost:24368](http://localhost:24368) 에 Agent Studio 가 열린다
+- [ ] Studio 의 **FedOps server** 가 `Main FedOps` 다
 - [ ] Studio 와 Console 에 **같은 계정**으로 로그인됐다
 - [ ] `template/` 폴더가 로컬에 있다
 

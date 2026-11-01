@@ -74,8 +74,11 @@ Create an **account** with **Create account** on the FedOps Console sign-in scre
 
 Sign in **in two places separately**.
 
-1. Sign in with your FedOps account on the Agent Studio start screen
+1. On the Agent Studio start screen, check that **FedOps server** is **`Main FedOps`**, then sign in with your FedOps account
 2. Also sign in to the FedOps Console in your browser — **Open Console** at the top right of FedOps Web ([https://ccl.gachon.ac.kr/fedops](https://ccl.gachon.ac.kr/fedops)), or [https://ccl.gachon.ac.kr/fedops/console](https://ccl.gachon.ac.kr/fedops/console)
+
+{: .note }
+> ⚙️ **FedOps server** — which FedOps server to connect to, that is, where federated learning aggregation runs. To use another server — on-premises, AWS, Kakao Cloud, and so on — add it with **Add server** and that server's address. Accounts and Tasks are separate on each server, so **this tutorial keeps `Main FedOps`**.
 
 > Studio and the Console do not share sign-in. With two accounts, always check that **Studio and the Console use the same account**. Otherwise you get "my Task is not visible".
 
@@ -97,6 +100,7 @@ All later commands run from this `template/` folder. Without git, use **Code →
 
 - [ ] `docker compose version` prints a version
 - [ ] Agent Studio opens at [http://localhost:24368](http://localhost:24368)
+- [ ] Studio's **FedOps server** is `Main FedOps`
 - [ ] You are signed in to Studio and the Console with **the same account**
 - [ ] The `template/` folder is on your PC
 

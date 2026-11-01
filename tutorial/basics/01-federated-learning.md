@@ -78,6 +78,21 @@ flowchart LR
 
 > **Studio 가 내 PC 에서 도는 이유:** 데이터가 내 PC 를 떠나지 않아야 하기 때문입니다. 학습은 Studio(내 PC)에서, 합치기만 서버에서 합니다.
 
+<details markdown="1">
+<summary>📚 집계는 어디서 하나요 — FedOps 서버</summary>
+
+각 참여자가 보낸 파라미터를 받아 합치는 집계(aggregation)는 FedOps 서버에서 이뤄집니다. FedOps 는 한 곳에 묶인 서비스가 아니라, 같은 플랫폼을 여러 인프라에 설치해 운영할 수 있습니다.
+
+| FedOps 서버 | 어디서 집계하나 |
+| --- | --- |
+| **Main FedOps** | 가천대 CCL 연구실 온프레미스 Kubernetes 클러스터 — 이 튜토리얼의 기준 |
+| **AWS** | Amazon Web Services 클라우드 |
+| **Kakao Cloud** | 카카오클라우드 |
+
+어느 서버를 쓰든 **데이터는 각자 PC 에 남고, 서버로는 학습된 파라미터만** 갑니다. 기관이 데이터 정책이나 비용에 맞춰 집계 위치를 고를 수 있다는 뜻입니다. 어느 서버에 접속할지는 Agent Studio 로그인 화면의 **FedOps server** 에서 고릅니다([3. 준비하기]({{ '/v1.3/tutorial/basics/setup/' | relative_url }})).
+
+</details>
+
 ## FedOps 의 Task 생애
 
 이 튜토리얼 전체가 따라가는 줄거리입니다. 각 상태를 누가 바꾸는지 보세요.
